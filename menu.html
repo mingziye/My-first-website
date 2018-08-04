@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>navigation</title>
+
+<style>
+  *{
+    font-family: STXinwei;
+          text-transform:uppercase;
+    
+
+  }
+ul
+ { margin:0;
+  padding:0; 
+  list-style:none; 
+  width:120px;
+ 
+  font-size:19px;
+  }
+
+ul li 
+{ position:relative;}
+
+li ul
+ { position:absolute;
+  left:119px; 
+  top:0;
+  display:none;
+  }
+li ul li ul li{
+   display:none;
+}
+.c1:hover li.c2
+{display:block;}
+ul li a { 
+width:110px;
+display:block; 
+text-decoration:none; 
+color:#fff; 
+background:#111; 
+padding:5px;
+padding-bottom: 12px;
+padding-top: 12px;
+
+
+
+ border-bottom:0px;}
+
+ul li a:hover { background-color:#ddd;}
+
+* html ul li { float:left; height:1%;}
+* html ul li a { height:1%;}
+/* end */
+li:hover ul,li.over ul { display:block;}
+</style>
+</head>
+ 
+<body>
+<ul id="ul1"  >
+  <li><a href="index.html" target="_parent" >home</a></li>
+  <li><a href="definition.html" target="iframeContent">definition</a></li>
+ 
+ <li><a href="#">metro parasol</a>
+  <ul>
+   <li><a href="transfrom.html" target="iframeContent">transfrom</a></li>
+   <li><a href="image.html" target="iframeContent">image</a></li>
+
+
+   <li class="c1"><a href="keymove.html" target="iframeContent">key move</a> </li>
+   <li class="c2"><a href="success.html" target="iframeContent">success</a></li>
+          
+ 
+ </ul>
+ </li>
+ <li><a href="#">project2</a>
+  <ul>
+   <li><a href="#" target="iframeContent">transfrom</a></li>
+   <li><a href="#" target="iframeContent">image</a></li>
+   <li class="c1"><a href="keymove.html" target="iframeContent">key move</a> </li>
+   <li class="c2"><a href="success.html" target="iframeContent">success</a></li>
+ </ul>
+ </li>
+</ul>
+</body>
+</html>
