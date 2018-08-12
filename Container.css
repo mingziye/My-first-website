@@ -23,7 +23,6 @@
 #container>#btn1:hover {
   box-shadow: 10px 0px 20px 0px black;
 }
-}
 #container>#btn2:hover {
   box-shadow: -10px 0px 20px 0px black;
 }
