@@ -6,7 +6,33 @@
 	</head>
 <body>
 	<div id="container">
-				
+		<img class="slides" src="image3.jpeg"/> 
+		<img class="slides" src="image4.jpeg"/> 
+		<img class="slides" src="image3.jpeg"/> 
+		<button class="btn" onclick = "plusIndex(-1)" id="btn1">&#10094;</button>
+		<button class="btn" onclick = "plusIndex(1)" id="btn2">&#10095;</button>
 	</div>
 </body>
+	<script>
+		var index = 0;
+		
+		function plusIndex(n){
+			index = index + 1;
+			showImage(index);
+		}
+		
+		showImage(1);
+		
+		function showImage(n) {
+			var i;
+			var x = document.getElementsByClassName("slides");
+			if(n > x.length){ index = 1}
+			if(n < 1){ index = x.length};
+			for(i=0; i<x.length; i++)
+			{
+				x[i].style.display = "none";
+			}
+			x[index-1].style.display = "block";
+		}
+	</script>
 </html>
