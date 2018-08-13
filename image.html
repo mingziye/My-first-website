@@ -1,151 +1,71 @@
 <!DOCTYPE html >
 <html>
-<head>
-<title>image</title>
-<style>
-*{margin:0px;padding:0px;list-style-type:none;}
-.v_out{width:748px;margin:20px auto;overflow:hidden;}
-.v_show{width:665px;overflow:hidden;position:relative;height:280px;float:left}
-.v_cont{ width:6650px;position:absolute;left:0px;top:0px;}
-.v_cont ul{float:left;text-align:center;line-height:50px;}
-.v_cont ul li{width:665px;height:250px;background:#f8f8f8;float:left;margin-top:3px;}
-.v_out_p{position:relative;overflow:visible}
-.circle{position:absolute;left: 40px;top: 290px;}
-.circle li{width:120px;height:60px;float:left;margin-right:10px;background:#ccc}
-.circle .circle-cur{background:#f00}
-.prev,.next{float:left;padding:105px 9px 0}
-.prev a{ background:#111;}
-.prev .ico_1{ background:url(input_a.gif) no-repeat 0 -3757px;}
-.next a{background:#111 }
-.next .ico_2{background:url(input_a.gif) no-repeat right -3757px;}
-.prev,.prev a,.next,.next a{width:21px;height:28px; display:block}
-#im1,#im11{
-    background-image:url(image1.jpeg);
-    background-size:100% 100%;
-    background-repeat:no-repeat;
-}
-#im2,#im22{
-    background-image:url(image2.jpeg);
-    background-size:100% 100%;
-    background-repeat:no-repeat;
-}
-#im3,#im33{
-    background-image:url("http://www.internimagazine.com/content/uploads/2015/03/02_613_IA.jpg");
-    background-size:100% 100%;
-    background-repeat:no-repeat;
-}
-</style>
-</head>
-<body>
+  <head>
+      <title>Image</title>
+    <link href="style.css" rel= "stylesheet" type="text/css">
+  </head>
+  <body>
+    <!-- Slideshow container -->
+<div class="slideshow-container">
 
-<div class="v_out v_out_p">
-	<div class="prev"><a href="javascript:void(0)"></a></div>
-	
-    <div class="v_show">
-		<div class="v_cont">
-			<ul>
-				<li index="0"id="im11"><img src=img1.jpeg></li>
-				<li index="1"id="im22"><img src=img2.jpeg></li>
-				<li index="2"id="im33"><img src=>"http://www.internimagazine.com/content/uploads/2015/03/02_613_IA.jpg"</li>
-			
-			</ul>
-		</div>
-	</div>
-	
-    <div class="next"><a href="javascript:void(0)"></a></div>
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="image1.jpeg" style="width:100%">
+    <div class="text"><!--Red Square--></div>
+  </div>
 
-	<ul class="circle">
-		<li class="circle-cur" id="im1">1</li>
-		<li id="im2">2</li>
-		<li id="im3">3</li>
-		
-	</ul>
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="image2.jpeg" style="width:100%">
+    <div class="text"><!--Black Square--></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="02_613_IA.jpg" style="width:100%">
+    <div class="text"><!--Green Park--></div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
 
-<script src="http://www.lanrenzhijia.com/ajaxjs/1.4.4/jquery-1.4.4.min.js"></script>
 <script>
-$(function() {
-	$(".next a").click(function() {
-		nextscroll()
-	});
-	function nextscroll() {
-		var vcon = $(".v_cont ");
-		var offset = ($(".v_cont li").width()) * -1;
-		vcon.stop().animate({
-			left: offset
-		}, "slow", function() {
-			var firstItem = $(".v_cont ul li").first();
-			vcon.find("ul").append(firstItem);
-			$(this).css("left", "0px");
-			circle()
-		})
-	};
-	function circle() {
-		var currentItem = $(".v_cont ul li").first();
-		var currentIndex = currentItem.attr("index");
-		$(".circle li").removeClass("circle-cur");
-		$(".circle li").eq(currentIndex).addClass("circle-cur")
-	}
-	$(".prev a").click(function() {
-		var vcon = $(".v_cont ");
-		var offset = ($(".v_cont li").width() * -1);
-		var lastItem = $(".v_cont ul li").last();
-		vcon.find("ul").prepend(lastItem);
-		vcon.css("left", offset);
-		vcon.animate({
-			left: "0px"
-		}, "slow", function() {
-			circle()
-		})
-	});
-	var animateEnd = 1;
-	$(".circle li").click(function() {
-		if (animateEnd == 0) {
-			return
-		}
-		$(this).addClass("circle-cur").siblings().removeClass("circle-cur");
-		var nextindex = $(this).index();
-		var currentindex = $(".v_cont li").first().attr("index");
-		var curr = $(".v_cont li").first().clone();
-		if (nextindex > currentindex) {
-			for (var i = 0; i < nextindex - currentindex; i++) {
-				var firstItem = $(".v_cont li").first();
-				$(".v_cont ul").append(firstItem)
-			}
-			$(".v_cont ul").prepend(curr);
-			var offset = ($(".v_cont li").width()) * -1;
-			if (animateEnd == 1) {
-				animateEnd = 0;
-				$(".v_cont").stop().animate({
-					left: offset
-				}, "slow", function() {
-					$(".v_cont ul li").first().remove();
-					$(".v_cont").css("left", "0px");
-					animateEnd = 1
-				})
-			}
-		} else {
-			var curt = $(".v_cont li").last().clone();
-			for (var i = 0; i < currentindex - nextindex; i++) {
-				var lastItem = $(".v_cont li").last();
-				$(".v_cont ul").prepend(lastItem)
-			}
-			$(".v_cont ul").append(curt);
-			var offset = ($(".v_cont li").width()) * -1;
-			$(".v_cont").css("left", offset);
-			if (animateEnd == 1) {
-				animateEnd = 0;
-				$(".v_cont").stop().animate({
-					left: "0px"
-				}, "slow", function() {
-					$(".v_cont ul li").last().remove();
-					animateEnd = 1
-				})
-			}
-		}
-	})
-})
-</script>
-
+var slideIndex = 1;
+showSlides(slideIndex);
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block"; 
+  dots[slideIndex-1].className += " active";
+}
+</script>  
 </body>
 </html>
