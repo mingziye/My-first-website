@@ -5,7 +5,7 @@
 }
 
 header {
-  background-image: linera-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))url(171109_06_49_10_5DSR4201.0.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))url(171109_06_49_10_5DSR4201.0.jpg);
   height: 100vh;
   backgroud-size: cover;
   background-position: center;
