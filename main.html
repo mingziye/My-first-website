@@ -1,9 +1,59 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML><HEAD>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
-
+  <style>
+    .wz-slider {
+      width: 90%;
+      height: 600px;
+      margin: 50px auto;
+      border-radius: 20px solid gold;
+      box-shadow: 0px 0px 20px 5px grey;
+      overflow: hidden;
+      
+      
+    }
+    
+    .wz-slider figure img{
+      width: 20%;
+      height: 600px;
+      float: left;
+    }
+    
+    .wz-slider figure {
+      position: relative;
+      width: 500%;
+      margin: 0%;
+      left: 0px;
+      
+      animation: webzone 20s infinite linear;
+    }
+    
+    @keyframes webzone {
+      0% {left: 0%;}
+      15% {left: 0%;}
+      20% {left: -100%;}
+      35% {left: -100%;}
+      40% {left: -200%;}
+      60% {left: -200%;}
+      65% {left: -3000%;}
+      80% {left: -300%;}
+      85% {left: -400%;}
+      100% {left: -400%;}
+    }
+   
+  </style>  
 </HEAD>
 
 <BODY  background="">
-
-</BODY></HTML>
+  <div class = "wz-slider">
+    <figure>
+      <img src="metro1.jpg">
+      <img src="super1.jpg">
+      <img src="metro2.jpg">
+      <img src="super2.jpg">
+      <img src="metro3.jpg">
+      <img src="super3.jpg">
+    </figure>
+  </div>
+</BODY>
+</HTML>
